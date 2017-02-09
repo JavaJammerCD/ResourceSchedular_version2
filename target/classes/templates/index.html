@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-app="resourceApp" ng-controller="MainController">
+
+<head>
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+
+	<!-- Angular UI router -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+	<!-- Angular UI & Bootstrap -->
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+
+	<!-- Open Layers -->
+	<script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/controllers/MainController.js"></script>
+
+	<script>
+		$(function () {
+			$("#datepicker").datepicker();
+			var date = moment().format("MM/DD/YYYY");
+			$("#datepicker").datepicker("setDate", date);
+		});
+	</script>
+</head>
+
+<body>
+	<div class="header">
+		<div>Resource Scheduler</div>
+	</div>
+	<div>
+		<div class="sidePanel">
+			<div class="panelHeader">
+				<h3>Welcome back ...</h3>
+
+			</div>
+			<button class="accordion">My Bookings</button>
+			<div class="panel">
+				<p>My desks for the week</p>
+			</div>
+
+			<button class="accordion">Make a Booking</button>
+			<div class="panel">
+				<p>To make a reservation please select a desk from the map.</p>
+				<p>Date: <input type="text" id="datepicker" class="datepicker"></p>
+				<div id="deskInfo" class="deskInfo" ng-hidden="{{deskInfoHidden}}">
+					<h3 id="deskName">{{deskName}}</h3>
+					<p id="deskProperties"><h4>The desk has the following:</h4>{{deskProperties}}</p>
+					<form action="">
+						Would you like to book the desk all day?
+						<input type="checkbox" name="allDay" value="allDay">
+					</form>
+					<div class="startTime">
+						<br> Start Time<br>
+						<select>				  
+					  <option value="8:00">8:00</option>
+					  <option value="8:30">8:30</option>
+					  <option value="9:00">9:00</option>
+					  <option value="9:30">9:30</option>
+					  <option value="10:00">10:00</option>
+					  <option value="10:30">10:30</option>
+					  <option value="11:00">11:00</option>
+					  <option value="11:30">11:30</option>
+					  <option value="12:00">12:00</option>
+					  <option value="12:30">12:30</option>
+					  <option value="13:00">13:00</option>
+					  <option value="13:30">13:30</option>
+					  <option value="14:00">14:00</option>
+					  <option value="14:30">14:30</option>
+					  <option value="15:00">15:00</option>
+					  <option value="15:30">15:30</option>
+					  <option value="16:00">16:00</option>
+					  <option value="16:30">16:30</option>
+					  <option value="17:00">17:00</option>				  
+					</select>
+					</div>
+					<div class="endTime">
+						<br> End Time<br>
+						<select>				  
+						  <option value="8:00">8:00</option>
+						  <option value="8:30">8:30</option>
+						  <option value="9:00">9:00</option>
+						  <option value="9:30">9:30</option>
+						  <option value="10:00">10:00</option>
+						  <option value="10:30">10:30</option>
+						  <option value="11:00">11:00</option>
+						  <option value="11:30">11:30</option>
+						  <option value="12:00">12:00</option>
+						  <option value="12:30">12:30</option>
+						  <option value="13:00">13:00</option>
+						  <option value="13:30">13:30</option>
+						  <option value="14:00">14:00</option>
+						  <option value="14:30">14:30</option>
+						  <option value="15:00">15:00</option>
+						  <option value="15:30">15:30</option>
+						  <option value="16:00">16:00</option>
+						  <option value="16:30">16:30</option>
+						  <option value="17:00">17:00</option>				  
+						</select>
+					</div>
+					<div class="buttonContainer">
+						<button class="bookingButton" type="button" ng-click="bookDesk">Book</button>
+					</div>
+				</div>
+			</div>
+
+			<button class="accordion">Settings</button>
+			<div class="panel">
+				<p>My default location: Holborn</p>
+				<p>My favourite desk: HC38</p>
+			</div>
+
+			<button class="accordion">About</button>
+			<div class="panel">
+				<p>Created as our Java graduate project making use of Open Layers, Angular JS, Java, Spring. </br>
+					</br>
+					<u>Created by</u>
+					</br>Charlie Draper</br>Dayam Javed</br>Elliot Jenkins</br>Miguel Antunes</p>
+			</div>
+
+		</div>
+		<div id="map" class="map"></div>
+	</div>
+</body>
+
+</html>

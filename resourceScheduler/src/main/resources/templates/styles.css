@@ -1,0 +1,103 @@
+.header {
+			background-color: rgb(207,2,43);			
+			height: 40px;
+			text-align: center;			
+			color: white;
+			font: 20px Arial,sans-serif;
+			border-color: rgb(207,2,43);
+			padding-top: 5px;
+		}
+			  
+		.sidePanel{
+			border-color: rgb(207,2,43);
+			padding-top: 10px;
+			margin-top: 10px;
+			float: left;
+			width: 19%;
+			border-style: solid;
+			display: inline;			
+			height: 550px;
+			text-align: center;
+			background-color: rgb(207,2,43);
+			overflow-y:scroll;
+	  }
+	  .map{
+			border-color: rgb(207,2,43);
+			margin-top: 10px;
+			float: right;
+			width: 79%;
+			border-style: solid;
+			display: inline;
+			height: 560px;
+	  }
+	  .ol-control button{
+			background-color: rgb(207,2,43);		
+	  }
+		.ol-control button:focus, .ol-control button:hover{
+			background-color: rgb(239,125,0);
+		}
+
+	  .panelHeader{	
+			color: white;	
+			text-align: center;
+	  }
+	  
+	  .deskInfo{
+			text-align: center;				
+	  }
+	  
+	  .startTime{		
+			float: left;
+			width: 49%;
+	  }
+	  .endTime{
+			float: right;
+			width: 49%;
+	  }
+	  	  
+	  .bookingButton{
+	    margin-top: 10px;
+			padding: 5px;
+			padding-left: 30%;
+			padding-right: 30%;	    
+			border-color: rgb(200,0,43);
+			background-color: rgb(207,2,43);
+			color: white;
+	  }
+	  .hidden{
+			display: none;
+	  }
+	  .ui-datepicker{
+			background-color: rgb(207,2,43);
+	  }	  	
+
+	  .datepicker{
+			text-align: center;
+	  }
+		/* Style the buttons that are used to open and close the accordion panel */
+		button.accordion {
+    	background-color: rgb(207,2,43);
+    	color:white;
+    	cursor: pointer;
+    	padding: 18px;
+    	width: 100%;
+    	text-align: left;
+    	border: none;
+    	outline: none;
+    	transition: 0.4s;
+		}
+
+		/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+		button.accordion.active, button.accordion:hover {
+				background-color: rgb(239,125,0);
+		}
+
+		/* Style the accordion panel. Note: hidden by default */
+		div.panel {
+				padding: 0 18px;
+				background-color: white;
+				display: none;
+				border-style: solid;
+				border-color: rgb(239,125,0);
+				padding-bottom: 5px;
+		}
